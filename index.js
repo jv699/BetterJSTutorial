@@ -9,7 +9,18 @@ const makePerson = ({firstName, age, job, lastName}) => {
     }
 }
 
-//Testing
+//pure functions
+// - always return the same thing with the same input, pure
+const addTwo = (x) => x + 2;
+console.log(addTwo(2)); //always will return the same thing
+
+//returns different things, even with the same input, not pure
+let multi = 3;
+const addThree = (x) => x + multi;
+console.log(addThree(2)); 
+multi = 4;
+console.log(addThree(2)); 
+
 
 const tempName = {
     firstName : 'josh',
@@ -28,8 +39,8 @@ const tempName = {
 //     return hiredDevInfo;
 // }
 
-//correct
-const hireDev = ({ dev}) => {
+//correct keep the same naming scheme, no need to rename when you dont need it
+const hireDev = ({ dev }) => {
     const hiredDev= {
         hired : true,
         ...dev
