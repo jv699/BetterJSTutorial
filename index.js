@@ -1,4 +1,4 @@
-//this is a test of git from the new thinkpad
+//this is a test of git from the new thinkpad 2
 const BASE_SALARY = 16000;
 const SALARY_MULTIPLIER = 4;
 
