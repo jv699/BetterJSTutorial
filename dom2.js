@@ -14,4 +14,12 @@ const createColor = () => {
 
 const applyColorToBody = () => document.body.style.backgroundColor = createColor();
 
-console.log(applyColorToBody()); // this isn't exactly how the guy did it, but I like it
+applyColorToBody(); // this isn't exactly how the guy did it, but I like it
+
+const newColors = document.getElementById("new-colors");
+//on click attaches one event
+// newColors.onclick = () => applyColorToBody();
+
+//this is a preferable solution because you can add as many event listeners as you want
+newColors.addEventListener('click', applyColorToBody); //you exclude the () for some reason
+newColors.addEventListener('mouseover', applyColorToBody);
