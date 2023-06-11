@@ -1,5 +1,6 @@
 //tutorial #14, .map
 //tutorial #15, .filter
+//tutorial #16, .reduce
 
 const simpleShoppingCart = [10, 20, 25, 5, 10];
 
@@ -35,6 +36,9 @@ const discountCart = shoppingCart.map((value) => {
   };
 });
 
+//same thing as above, but as a one liner
+// const discountCart = simpleShoppingCart.map(value => value *.75);
+
 //.filter
 // iterates over an array, and determines what value gets filtered
 // returns a new array. the new array will have the same, or less, amount of items
@@ -50,11 +54,15 @@ const filteredCart = shoppingCart.filter(({type}) => {
   }
 });
 
-//operates just like the code above, just in one line with destructuring
+// operates just like the code above, just in one line with destructuring
 // const filteredCart = shoppingCart.filter(({type}) => type == 'tutorial');
 
-//same thing as above, but as a one liner
-// const discountCart = simpleShoppingCart.map(value => value *.75);
+// .reduce
+// outputs a single value, ususaly used to calculate things with numbers
 
-console.log(shoppingCart);
-console.log(filteredCart);
+const total = simpleShoppingCart.reduce((total, currentPrice) => {
+  return total + currentPrice;
+});
+
+console.log(simpleShoppingCart);
+console.log(total);
