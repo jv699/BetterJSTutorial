@@ -1,4 +1,5 @@
-//tutorial #14, JS array methods
+//tutorial #14, .map
+//tutorial #15, .filter
 
 const simpleShoppingCart = [10, 20, 25, 5, 10];
 
@@ -23,18 +24,37 @@ const shoppingCart = [
 // .map
 // super useful. it takes each array item and allows something to happen to it
 // iterates over every item, performs a function and returns an array
+// array has the same number of items
 
-const discountCart = simpleShoppingCart.map((value) => {
-    // return 'hi'; //iterates and changes every item to hi
-    // return value.price * .75; //applies a 25% discount
-    return {
-        ...value,
-        salePrice: value.price * .75
-    };
+const discountCart = shoppingCart.map((value) => {
+  // return 'hi'; //iterates and changes every item to hi
+  // return value.price * .75; //applies a 25% discount
+  return {
+    ...value, 
+    salePrice: value.price * .75
+  };
 });
+
+//.filter
+// iterates over an array, and determines what value gets filtered
+// returns a new array. the new array will have the same, or less, amount of items
+
+const filteredCart = shoppingCart.filter(({type}) => {
+  return type == 'tutorial';
+}).filter(product => { //this filters the filtered list
+  return product.price > 20;
+}).map(product => { //takes result and adds an extra property
+  return {
+    ...product,
+    extra: product.price * 10
+  }
+});
+
+//operates just like the code above, just in one line with destructuring
+// const filteredCart = shoppingCart.filter(({type}) => type == 'tutorial');
 
 //same thing as above, but as a one liner
 // const discountCart = simpleShoppingCart.map(value => value *.75);
 
 console.log(shoppingCart);
-console.log(discountCart);
+console.log(filteredCart);
