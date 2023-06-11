@@ -18,7 +18,7 @@
 //promise is a asynchronus function
 const chargeCard = () => new Promise((resolve, reject) => {
     //card is valid
-    // reject('FAIL'); //this skips the 'then' state and goes right to 'reject'
+    reject('FAIL'); //this skips the 'then' state and goes right to 'reject'
     if (true) {
         return resolve(true);
     }
@@ -26,10 +26,27 @@ const chargeCard = () => new Promise((resolve, reject) => {
     //rejecting is used if there is something wrong
 });
 
-chargeCard().then((val) => {
-    //then runs when the promise is resolved
-    console.log(val);
-}).catch((err) => {
-    //this is used if it returns a rejection 
-    console.log(err);
-});
+// as long as the function returns a promise, it can be async
+const chargeCC = async (ccNumber) => {
+    //this does what the code below does quickly and easily
+    // waits for whatever needs to happen before continuing on
+    //however, a rejection will not return a result, so we use a try catch
+    try {
+        const res = await chargeCard(ccNumber);
+        return res;
+    } catch (error){
+        console.log(error);
+    }
+
+    // chargeCard(ccNumber)
+    //     .then((val) => {
+    //         //then runs when the promise is resolved
+    //         console.log(val);
+    //     }).catch((err) => {
+    //         //this is used if it returns a rejection 
+    //         console.log(err);
+    //     });
+}
+
+console.log(chargeCC('1341414334134').then((val) => console.log(val))); //the nasitest one liner to ever do it
+// console.log(chargeCC('13514525245'));
