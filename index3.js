@@ -1,4 +1,4 @@
-//Promises tutorial
+//Promises 101
 
 //made up code
 // const chargeCard = () => null;
@@ -15,9 +15,10 @@
 //using the example from above
 
 //promise is given code to be run out of order, or rather independently of everything else
+//promise is a asynchronus function
 const chargeCard = () => new Promise((resolve, reject) => {
     //card is valid
-    reject('FAIL'); //this skips the 'then' state and goes right to 'reject'
+    // reject('FAIL'); //this skips the 'then' state and goes right to 'reject'
     if (true) {
         return resolve(true);
     }
