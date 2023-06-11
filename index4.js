@@ -1,6 +1,7 @@
 //tutorial #14, .map
 //tutorial #15, .filter
 //tutorial #16, .reduce
+//tutorial #17, some other array methods
 
 const simpleShoppingCart = [10, 20, 25, 5, 10];
 
@@ -66,3 +67,8 @@ const total = simpleShoppingCart.reduce((total, currentPrice) => {
 
 console.log(simpleShoppingCart);
 console.log(total);
+
+// ... works with arrays as well, it creates a new array with the contents of the input
+// reverse without making it destructive
+console.log([...simpleShoppingCart].reverse());
+console.log(simpleShoppingCart);
