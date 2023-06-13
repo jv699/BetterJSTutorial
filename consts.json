@@ -1,3 +1,5 @@
-const SEARCH_URL = 'https://openlibrary.org/search.json?q=' 
+export const SEARCH_URL = 'https://openlibrary.org/search.json?q=' ;
+export const SEARCH_QUERY = 'Javascript';
 
-export default SEARCH_URL;
+const hello = 'hi';
+export default hello;
